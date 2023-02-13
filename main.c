@@ -134,7 +134,6 @@ void draw_map(void *mlx, void *win, void *wall, void *space, void *player, void 
 	}
 }
 
-
 void player_move(int keycode)
 {
 	int count = 0;
@@ -253,8 +252,9 @@ int main()
 	check_the_parrent_path(check_key.map);
 	
 	int b = 0;
-	while (check_for_valid_path_map(check_key.map)[b]) {
-		printf("the chker path => %s", check_for_valid_path_map(check_key.map)[0]);
+	while (check_path(check_key.map)[b]) {
+		printf("%s\n", check_path(check_key.map)[b]);
+		b++;
 	}
 	map_statu();
 	int img_width;

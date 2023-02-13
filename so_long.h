@@ -14,7 +14,7 @@
     void finished_game();
     void error_int_map();
     //cheking map
-    char **check_for_valid_path_map(char **map);
+    // char **check_for_valid_path_map(char **map);
 
     bool check_path_player(char **map);
     bool check_path_coing(char **map);
@@ -24,6 +24,7 @@
     bool check_for_door(char **map);
     bool check_for_player(char **map);
     bool check_the_parrent_path(char **map);
+    char **check_path(char **map);
 
 
 #endif
