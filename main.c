@@ -244,6 +244,7 @@ int main()
 	char *file = "maps/map.ber";
 	check_key.map = trans_to_2d_dim(file);
 
+	//function chkers
 	check_path_player(check_key.map);
 	check_path_coing(check_key.map);
 	check_path_door(check_key.map);
@@ -252,10 +253,10 @@ int main()
 	check_for_door(check_key.map);
 	check_for_player(check_key.map);
 	check_the_parrent_path(check_key.map);
-	int b = 0;
-	cc(check_key.map, file);
+	// cc(check_key.map, file);
 	// check_key.map = trans_to_2d_dim(file);
-	map_statu();
+
+	cc(check_key.map, file);
 	int img_width;
 	int img_height;
 	mlx_data.mlx = mlx_init();
@@ -269,6 +270,6 @@ int main()
 	draw_map(mlx_data.mlx , mlx_data.win, mlx_data.wall, mlx_data.space, mlx_data.player, mlx_data.coin, mlx_data.close_door, mlx_data.open_door);
 	mlx_key_hook(mlx_data.win, key_press, NULL);
 	mlx_hook(mlx_data.win, 17, 0, exit_game, NULL);
-	mlx_loop(mlx_data.mlx);
+	// mlx_loop(mlx_data.mlx);
 	return (0);
 }

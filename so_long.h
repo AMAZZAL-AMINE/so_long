@@ -24,7 +24,7 @@
     bool check_for_door(char **map);
     bool check_for_player(char **map);
     bool check_the_parrent_path(char **map);
-    char **check_path(char *file,char **map);
+    char **check_path(char *file);
     char **trans_to_2d_dim(char *file);
 
     void cc(char **str, char *file);
