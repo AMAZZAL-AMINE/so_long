@@ -270,6 +270,6 @@ int main()
 	draw_map(mlx_data.mlx , mlx_data.win, mlx_data.wall, mlx_data.space, mlx_data.player, mlx_data.coin, mlx_data.close_door, mlx_data.open_door);
 	mlx_key_hook(mlx_data.win, key_press, NULL);
 	mlx_hook(mlx_data.win, 17, 0, exit_game, NULL);
-	// mlx_loop(mlx_data.mlx);
+	mlx_loop(mlx_data.mlx);
 	return (0);
 }
