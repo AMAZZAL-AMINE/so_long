@@ -238,9 +238,11 @@ void map_statu() {
 	}
 }
 
+
 int main()
 {
-	check_key.map = trans_to_2d_dim("maps/map.ber");
+	char *file = "maps/map.ber";
+	check_key.map = trans_to_2d_dim(file);
 
 	check_path_player(check_key.map);
 	check_path_coing(check_key.map);
@@ -250,12 +252,9 @@ int main()
 	check_for_door(check_key.map);
 	check_for_player(check_key.map);
 	check_the_parrent_path(check_key.map);
-	
 	int b = 0;
-	while (check_path(check_key.map)[b]) {
-		printf("%s\n", check_path(check_key.map)[b]);
-		b++;
-	}
+	cc(check_key.map, file);
+	// check_key.map = trans_to_2d_dim(file);
 	map_statu();
 	int img_width;
 	int img_height;
