@@ -256,7 +256,11 @@ int main()
 	// cc(check_key.map, file);
 	// check_key.map = trans_to_2d_dim(file);
 
-	cc(check_key.map, file);
+	int count = 0;
+    while (check_path(file, check_key.map)[count]) {
+        printf("%s\n", check_path(file, check_key.map)[count]);
+        count++;
+    }
 	int img_width;
 	int img_height;
 	mlx_data.mlx = mlx_init();
