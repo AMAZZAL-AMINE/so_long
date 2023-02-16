@@ -95,7 +95,7 @@ bool check_for_coins() {
 	return 0;
 }
 
-void draw_map(void *mlx, void *win, void *wall, void *space, void *player, void *coin, void *close_door, void *open_door)
+void draw_map()
 {
 	int a = 0;
 	int b = 0;
@@ -110,23 +110,23 @@ void draw_map(void *mlx, void *win, void *wall, void *space, void *player, void 
 				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.space, b * 50, a * 50);
 			else if (check_key.map[a][b] == 'C')
 			{
-				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, space, b * 50, a * 50);
-				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, coin, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.space, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.coin, b * 50, a * 50);
 			}
 			if (check_key.map[a][b] == 'E') {
 				if (check_for_coins() == 0) {
 					check_key.is_finished = true;
-					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, space, b * 50, a * 50);
-					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, open_door, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.space, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.open_door, b * 50, a * 50);
 				}else {
-					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, space, b * 50, a * 50);
-					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, close_door, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.space, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.close_door, b * 50, a * 50);
 				}
 			}
 			if (check_key.map[a][b] == 'P')
 			{
-				mlx_put_image_to_window(mlx, win, space, b * 50, a * 50);
-				mlx_put_image_to_window(mlx, win, player, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.space, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.player, b * 50, a * 50);
 			}
 			b++;
 		}
@@ -197,7 +197,7 @@ int key_press(int keycode, void *param)
 	if (keycode == 53)
 		exit_game();
 	player_move(keycode);
-	draw_map(mlx_data.mlx, mlx_data.win, mlx_data.wall, mlx_data.space, mlx_data.player, mlx_data.coin, mlx_data.close_door, mlx_data.open_door);
+	draw_map();
 	return (0);
 }
 
@@ -227,14 +227,6 @@ char **trans_to_2d_dim(char *file) {
 	map[i] = NULL;
 	close(fd);
 	return (map);
-}
-
-void	map_statu()
-{
-	if (check_map(check_key.map))
-		printf("\033[32mSUCCESS\033[0m\n");
-	else
-		error_int_map();
 }
 
 void	the_all_cheker_functions()
@@ -292,16 +284,23 @@ void	mlx_pointers() {
 	mlx_data.close_door = mlx_xpm_file_to_image(mlx_data.mlx, "img/close_door.xpm", &img_width, &img_height);
 	mlx_data.open_door = mlx_xpm_file_to_image(mlx_data.mlx, "img/door.xpm", &img_width, &img_height);	
 	/*draw map*/
-	draw_map(mlx_data.mlx , mlx_data.win, mlx_data.wall, mlx_data.space, mlx_data.player, mlx_data.coin, mlx_data.close_door, mlx_data.open_door);
+	draw_map();
 	/*if user close the window*/
 	mlx_hook(mlx_data.win, 17, 0, exit_game, NULL);
 }
 
-int	main()
+int	main(int argc, char **argv)
 {
-	char *file = "maps/map.ber";
+	char *file =  argv[1];
+	if (argc != 2)
+	{
+		printf("Error: No map are selected\n");
+		exit(0);
+	}
+
 	check_key.map = trans_to_2d_dim(file);
-	map_statu();
+	if (!check_map(check_key.map))
+		error_int_map();
 	the_all_cheker_functions();
 	the_path_final_search();
 	check_key.map = trans_to_2d_dim(file);
