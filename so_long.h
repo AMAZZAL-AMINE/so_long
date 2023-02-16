@@ -23,8 +23,7 @@
     bool check_for_imposter_in_map(char **map);
     bool check_for_door(char **map);
     bool check_for_player(char **map);
-    bool check_the_parrent_path(char **map);
-    char **check_path(char *file, char **s);
+    char **check_path(char **str);
     char **trans_to_2d_dim(char *file);
 
     void cc(char **str, char *file);

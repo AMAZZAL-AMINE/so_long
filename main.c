@@ -239,12 +239,18 @@ void map_statu() {
 }
 
 
-int main()
-{
-	char *file = "maps/map.ber";
-	check_key.map = trans_to_2d_dim(file);
+// bool check_pat() {
+// 	int count = 0;
+// 	char **str1 = check_path(check_key.map);
+// 	char **str2 = check_path(check_path(str1));
+//     while (str2[count]) {
+//         printf("%s\n", str2[count]);
+//         count++;
+//     }
+// 	return true;
+// }
 
-	//function chkers
+void check_map2() {
 	check_path_player(check_key.map);
 	check_path_coing(check_key.map);
 	check_path_door(check_key.map);
@@ -252,15 +258,40 @@ int main()
 	check_for_imposter_in_map(check_key.map);
 	check_for_door(check_key.map);
 	check_for_player(check_key.map);
-	check_the_parrent_path(check_key.map);
-	// cc(check_key.map, file);
-	// check_key.map = trans_to_2d_dim(file);
-
 	int count = 0;
-    while (check_path(file, check_key.map)[count]) {
-        printf("%s\n", check_path(file, check_key.map)[count]);
-        count++;
-    }
+	int index = 0;
+	char **s = check_path(check_key.map);
+	while (check_path(check_key.map)[count]) {
+		index = 0;
+		while (check_path(check_key.map)[count][index]) {
+			if (check_path(check_key.map)[count][index] == '0') {
+				if  (check_path(check_key.map)[count + 1][index] == 'C' || check_path(check_key.map)[count + 1][index] == 'E') {
+					printf("\033[31mERROR\033[0m\n");
+					exit(1);
+				}else if (check_path(check_key.map)[count - 1][index] == 'C' || check_path(check_key.map)[count - 1][index] == 'E') {
+					printf("\033[31mERROR\033[0m\n");
+					exit(1);
+				}else if (check_path(check_key.map)[count][index + 1] == 'C' || check_path(check_key.map)[count][index + 1] == 'E') {
+					printf("\033[31mERROR\033[0m\n");
+					exit(1);
+				}else if (check_path(check_key.map)[count][index - 1] == 'C' || check_path(check_key.map)[count][index - 1] == 'E') {
+					printf("\033[31mERROR\033[0m\n");
+					exit(1);
+				}
+			}
+			index++;
+		}
+		count++;
+	}
+}
+
+
+int main()
+{
+	char *file = "maps/map.ber";
+	check_key.map = trans_to_2d_dim(file);
+	check_map2();
+	check_key.map = trans_to_2d_dim(file);
 	int img_width;
 	int img_height;
 	mlx_data.mlx = mlx_init();
