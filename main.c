@@ -105,22 +105,22 @@ void draw_map(void *mlx, void *win, void *wall, void *space, void *player, void 
 		while (check_key.map[a][b])
 		{
 			if (check_key.map[a][b] == '1')
-				mlx_put_image_to_window(mlx, win, wall, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.wall, b * 50, a * 50);
 			else if (check_key.map[a][b] == '0')
-				mlx_put_image_to_window(mlx, win, space, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, mlx_data.space, b * 50, a * 50);
 			else if (check_key.map[a][b] == 'C')
 			{
-				mlx_put_image_to_window(mlx, win, space, b * 50, a * 50);
-				mlx_put_image_to_window(mlx, win, coin, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, space, b * 50, a * 50);
+				mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, coin, b * 50, a * 50);
 			}
 			if (check_key.map[a][b] == 'E') {
 				if (check_for_coins() == 0) {
 					check_key.is_finished = true;
-					mlx_put_image_to_window(mlx, win, space, b * 50, a * 50);
-					mlx_put_image_to_window(mlx, win, open_door, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, space, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, open_door, b * 50, a * 50);
 				}else {
-					mlx_put_image_to_window(mlx, win, space, b * 50, a * 50);
-					mlx_put_image_to_window(mlx, win, close_door, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, space, b * 50, a * 50);
+					mlx_put_image_to_window(mlx_data.mlx, mlx_data.win, close_door, b * 50, a * 50);
 				}
 			}
 			if (check_key.map[a][b] == 'P')
@@ -229,28 +229,16 @@ char **trans_to_2d_dim(char *file) {
 	return (map);
 }
 
-void map_statu() {
-	if (check_map(check_key.map)) {
+void	map_statu()
+{
+	if (check_map(check_key.map))
 		printf("\033[32mSUCCESS\033[0m\n");
-	}else {
-		printf("\033[31mERROR\033[0m\n");
-		exit(1);
-	}
+	else
+		error_int_map();
 }
 
-
-// bool check_pat() {
-// 	int count = 0;
-// 	char **str1 = check_path(check_key.map);
-// 	char **str2 = check_path(check_path(str1));
-//     while (str2[count]) {
-//         printf("%s\n", str2[count]);
-//         count++;
-//     }
-// 	return true;
-// }
-
-void check_map2() {
+void	the_all_cheker_functions()
+{
 	check_path_player(check_key.map);
 	check_path_coing(check_key.map);
 	check_path_door(check_key.map);
@@ -258,26 +246,32 @@ void check_map2() {
 	check_for_imposter_in_map(check_key.map);
 	check_for_door(check_key.map);
 	check_for_player(check_key.map);
-	int count = 0;
-	int index = 0;
 	char **s = check_path(check_key.map);
-	while (check_path(check_key.map)[count]) {
+}
+
+void	the_path_final_search()
+{
+	int	count;
+	int	index;
+
+	count = 0;
+	while (check_path(check_key.map)[count])
+	{
 		index = 0;
 		while (check_path(check_key.map)[count][index]) {
 			if (check_path(check_key.map)[count][index] == '0') {
-				if  (check_path(check_key.map)[count + 1][index] == 'C' || check_path(check_key.map)[count + 1][index] == 'E') {
-					printf("\033[31mERROR\033[0m\n");
-					exit(1);
-				}else if (check_path(check_key.map)[count - 1][index] == 'C' || check_path(check_key.map)[count - 1][index] == 'E') {
-					printf("\033[31mERROR\033[0m\n");
-					exit(1);
-				}else if (check_path(check_key.map)[count][index + 1] == 'C' || check_path(check_key.map)[count][index + 1] == 'E') {
-					printf("\033[31mERROR\033[0m\n");
-					exit(1);
-				}else if (check_path(check_key.map)[count][index - 1] == 'C' || check_path(check_key.map)[count][index - 1] == 'E') {
-					printf("\033[31mERROR\033[0m\n");
-					exit(1);
-				}
+				if  (check_path(check_key.map)[count + 1][index] == 'C'
+					|| check_path(check_key.map)[count + 1][index] == 'E')
+					error_int_map();
+				else if (check_path(check_key.map)[count - 1][index] == 'C'
+					|| check_path(check_key.map)[count - 1][index] == 'E')
+					error_int_map();
+				else if (check_path(check_key.map)[count][index + 1] == 'C' 
+					|| check_path(check_key.map)[count][index + 1] == 'E')
+					error_int_map();
+				else if (check_path(check_key.map)[count][index - 1] == 'C'
+					|| check_path(check_key.map)[count][index - 1] == 'E')
+					error_int_map();
 			}
 			index++;
 		}
@@ -285,15 +279,10 @@ void check_map2() {
 	}
 }
 
+void	mlx_pointers() {
+	int	img_width;
+	int	img_height;
 
-int main()
-{
-	char *file = "maps/map.ber";
-	check_key.map = trans_to_2d_dim(file);
-	check_map2();
-	check_key.map = trans_to_2d_dim(file);
-	int img_width;
-	int img_height;
 	mlx_data.mlx = mlx_init();
 	mlx_data.win = mlx_new_window(mlx_data.mlx, ft_strlen(check_key.map[0]) * 50, check_line_len(check_key.map) * 50, "so_long");
 	mlx_data.wall = mlx_xpm_file_to_image(mlx_data.mlx, "img/wall2.xpm", &img_width, &img_height);
@@ -301,10 +290,23 @@ int main()
 	mlx_data.player = mlx_xpm_file_to_image(mlx_data.mlx, "img/player.xpm", &img_width, &img_height);
 	mlx_data.coin = mlx_xpm_file_to_image(mlx_data.mlx, "img/coin.xpm", &img_width, &img_height);
 	mlx_data.close_door = mlx_xpm_file_to_image(mlx_data.mlx, "img/close_door.xpm", &img_width, &img_height);
-	mlx_data.open_door = mlx_xpm_file_to_image(mlx_data.mlx, "img/door.xpm", &img_width, &img_height);
+	mlx_data.open_door = mlx_xpm_file_to_image(mlx_data.mlx, "img/door.xpm", &img_width, &img_height);	
+	/*draw map*/
 	draw_map(mlx_data.mlx , mlx_data.win, mlx_data.wall, mlx_data.space, mlx_data.player, mlx_data.coin, mlx_data.close_door, mlx_data.open_door);
-	mlx_key_hook(mlx_data.win, key_press, NULL);
+	/*if user close the window*/
 	mlx_hook(mlx_data.win, 17, 0, exit_game, NULL);
+}
+
+int	main()
+{
+	char *file = "maps/map.ber";
+	check_key.map = trans_to_2d_dim(file);
+	map_statu();
+	the_all_cheker_functions();
+	the_path_final_search();
+	check_key.map = trans_to_2d_dim(file);
+	mlx_pointers();
+	mlx_key_hook(mlx_data.win, key_press, NULL);
 	mlx_loop(mlx_data.mlx);
 	return (0);
 }

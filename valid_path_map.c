@@ -45,10 +45,12 @@ char *from_2d_to_1d(char **s)
 
 char **check_path(char **str)
 {
-    int count = 0;
-    int index = 0;
-    
-    while (str[count]) {
+    int count;
+    int index;
+
+    count = 0;
+    while (str[count])
+    {
         index = 0;
         while (str[count][index]) {
             if (str[count][index] == 'P') {
@@ -73,6 +75,5 @@ char **check_path(char **str)
         }
         count++;
     }
-
     return str;
 }
