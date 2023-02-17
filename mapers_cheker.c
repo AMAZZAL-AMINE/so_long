@@ -130,7 +130,6 @@ bool check_for_door(char **map) {
     return true;
 }
 
-
 bool check_for_player(char **map) {
     int count = 0;
     int index = 0;
