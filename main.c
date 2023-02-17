@@ -55,7 +55,7 @@ bool check_map(char **map)
 				i++;
 			}
 		}
-		else 
+		else
 		{
 			// check middle lines
 			while (map[count][i])
@@ -72,26 +72,28 @@ bool check_map(char **map)
 		}
 		count++;
 	}
-
 	return (true);
 }
 
-bool check_for_coins() {
+bool check_for_coins()
+{
 	int count = 0;
 	int index = 0;
 	int chekr = 0;
 	char **map = check_key.map;
-	while (map[count]) {
+	while (map[count])
+	{
 		index = 0;
-		while (map[count][index]) {
-			if (map[count][index] == 'C') {
-				return 1;
+		while (map[count][index])
+		{
+			if (map[count][index] == 'C')
+			{
+				return (1);
 			}
 			index++;
 		}
 		count++;
 	}
-
 	return 0;
 }
 
@@ -136,50 +138,75 @@ void draw_map()
 
 void player_move(int keycode)
 {
-	int count = 0;
-	int index = 0;
-	static int countmoves;
-	while (check_key.map[count]) {
+	int	count;
+	int	index;
+
+	count = 0;
+	while (check_key.map[count])
+	{
 		index = 0;
-		while (check_key.map[count][index]) {
-			if (check_key.map[count][index] == 'P') {
-				if (check_key.key == 126) {
-					if (check_key.map[count - 1][index] == '0' || check_key.map[count - 1][index] == 'C') {
-						check_key.map[count - 1][index] = 'P'; 
+		while (check_key.map[count][index])
+		{
+			if (check_key.map[count][index] == 'P')
+			{
+				if (check_key.key == 126)
+				{
+					if (check_key.map[count - 1][index] == '0'
+						|| check_key.map[count - 1][index] == 'C')
+					{
+						check_key.map[count - 1][index] = 'P';
 						check_key.map[count][index] = '0';
-						return;
-					}else if (check_key.map[count - 1][index] == 'E') {
-						if (check_key.is_finished == true) {
-							finished_game();
-						}
+						return ;
 					}
-				}else if (check_key.key == 125) { //down
-					if (check_key.map[count + 1][index] == '0' || check_key.map[count + 1][index] == 'C') {
+					else if (check_key.map[count - 1][index] == 'E')
+					{
+						if (check_key.is_finished == true)
+							finished_game();
+					}
+				}
+				else if (check_key.key == 125)
+				{
+					if (check_key.map[count + 1][index] == '0'
+						|| check_key.map[count + 1][index] == 'C')
+					{
 						check_key.map[count + 1][index] = 'P';
 						check_key.map[count][index] = '0';
-						return;
-					}else if (check_key.map[count + 1][index] == 'E') {
-						if (check_key.is_finished == true) {
-							finished_game();
-						}
+						return ;
 					}
-				}else if (check_key.key == 123) { //left <-
-					if (check_key.map[count][index - 1] == '0' || check_key.map[count][index - 1] == 'C') {
+					else if (check_key.map[count + 1][index] == 'E')
+					{
+						if (check_key.is_finished == true)
+							finished_game();
+					}
+				}
+				else if (check_key.key == 123)
+				{
+					if (check_key.map[count][index - 1] == '0'
+						|| check_key.map[count][index - 1] == 'C')
+					{
 						check_key.map[count][index - 1] = 'P';
 						check_key.map[count][index] = '0';
-						return;
-					}else if (check_key.map[count][index - 1] == 'E') {
-						if (check_key.is_finished == true) {
-							finished_game();
-						}
+						return ;
 					}
-				}else if (check_key.key == 124) { //right ->
-					if (check_key.map[count][index + 1] == '0' || check_key.map[count][index + 1] == 'C') {
+					else if (check_key.map[count][index - 1] == 'E')
+					{
+						if (check_key.is_finished == true)
+							finished_game();
+					}
+				}
+				else if (check_key.key == 124)
+				{
+					if (check_key.map[count][index + 1] == '0'
+						|| check_key.map[count][index + 1] == 'C')
+					{
 						check_key.map[count][index + 1] = 'P';
 						check_key.map[count][index] = '0';
-						return;
-					}else if (check_key.map[count][index + 1] == 'E') {
-						if (check_key.is_finished == true) {
+						return ;
+					}
+					else if (check_key.map[count][index + 1] == 'E')
+					{
+						if (check_key.is_finished == true)
+						{
 							finished_game();
 						}
 					}
@@ -203,8 +230,10 @@ int key_press(int keycode, void *param)
 
 int check_line_len(char **line)
 {
-	int i = 0;
-	int len = 0;
+	int	i ;
+	int	len;
+
+	i = 0;
 	while (line[i])
 		i++;
 	return (i);
@@ -214,9 +243,10 @@ char **trans_to_2d_dim(char *file) {
 	int	fd;
 	int count = 0;
 	int i = 0;
-	fd = open(file, O_RDONLY);
 	char **map;
 	char *line;
+
+	fd = open(file, O_RDONLY);
 	while ((line = get_next_line(fd)))
 		count++;
 	close(fd);
@@ -229,8 +259,10 @@ char **trans_to_2d_dim(char *file) {
 	return (map);
 }
 
-void	the_all_cheker_functions()
+void	the_all_cheker_functions(void)
 {
+	char	**s;
+
 	check_path_player(check_key.map);
 	check_path_coing(check_key.map);
 	check_path_door(check_key.map);
@@ -238,10 +270,28 @@ void	the_all_cheker_functions()
 	check_for_imposter_in_map(check_key.map);
 	check_for_door(check_key.map);
 	check_for_player(check_key.map);
-	char **s = check_path(check_key.map);
+	s = check_path(check_key.map);
 }
 
-void	the_path_final_search()
+int	search_(int count, int index, char **map)
+{
+	if (map[count][index] == 'C' || map[count][index] == 'E') {
+		if (map[count][index] == 'E')
+		{
+			if ((map[count - 1][index] ==  'P')
+				||(map[count + 1][index] == 'P')
+				||(map[count][index + 1] == 'P')
+				||(map[count][index - 1] == 'P'))
+			{
+				return (0);
+			}
+		}
+		return (1);
+	}
+	return (0);
+}
+
+void	the_path_final_search(void)
 {
 	int	count;
 	int	index;
@@ -250,19 +300,17 @@ void	the_path_final_search()
 	while (check_path(check_key.map)[count])
 	{
 		index = 0;
-		while (check_path(check_key.map)[count][index]) {
-			if (check_path(check_key.map)[count][index] == '0') {
-				if  (check_path(check_key.map)[count + 1][index] == 'C'
-					|| check_path(check_key.map)[count + 1][index] == 'E')
+		while (check_path(check_key.map)[count][index])
+		{
+			if (check_path(check_key.map)[count][index] == '0')
+			{
+				if (search_(count + 1, index, check_path(check_key.map)))
 					error_int_map();
-				else if (check_path(check_key.map)[count - 1][index] == 'C'
-					|| check_path(check_key.map)[count - 1][index] == 'E')
+				else if (search_(count - 1, index, check_path(check_key.map)))
 					error_int_map();
-				else if (check_path(check_key.map)[count][index + 1] == 'C' 
-					|| check_path(check_key.map)[count][index + 1] == 'E')
+				else if (search_(count, index + 1, check_path(check_key.map)))
 					error_int_map();
-				else if (check_path(check_key.map)[count][index - 1] == 'C'
-					|| check_path(check_key.map)[count][index - 1] == 'E')
+				else if (search_(count, index - 1, check_path(check_key.map)))
 					error_int_map();
 			}
 			index++;
@@ -271,33 +319,40 @@ void	the_path_final_search()
 	}
 }
 
-void	mlx_pointers() {
+void	mlx_pointers(void)
+{
 	int	img_width;
 	int	img_height;
+	int	width;
+	int	height;
 
+	width = ft_strlen(check_key.map[0]) * 50;
+	height = check_line_len(check_key.map) * 50;
 	mlx_data.mlx = mlx_init();
-	mlx_data.win = mlx_new_window(mlx_data.mlx, ft_strlen(check_key.map[0]) * 50, check_line_len(check_key.map) * 50, "so_long");
-	mlx_data.wall = mlx_xpm_file_to_image(mlx_data.mlx, "img/wall2.xpm", &img_width, &img_height);
-	mlx_data.space = mlx_xpm_file_to_image(mlx_data.mlx, "img/space.xpm", &img_width, &img_height);
-	mlx_data.player = mlx_xpm_file_to_image(mlx_data.mlx, "img/player.xpm", &img_width, &img_height);
-	mlx_data.coin = mlx_xpm_file_to_image(mlx_data.mlx, "img/coin.xpm", &img_width, &img_height);
-	mlx_data.close_door = mlx_xpm_file_to_image(mlx_data.mlx, "img/close_door.xpm", &img_width, &img_height);
-	mlx_data.open_door = mlx_xpm_file_to_image(mlx_data.mlx, "img/door.xpm", &img_width, &img_height);	
-	/*draw map*/
+	mlx_data.win = mlx_new_window(mlx_data.mlx, width, height, "so_long");
+	mlx_data.wall = mlx_xpm_file_to_image(mlx_data.mlx, \
+		"img/wall2.xpm", &img_width, &img_height);
+	mlx_data.space = mlx_xpm_file_to_image(mlx_data.mlx, \
+		"img/space.xpm", &img_width, &img_height);
+	mlx_data.player = mlx_xpm_file_to_image(mlx_data.mlx, \
+		"img/player.xpm", &img_width, &img_height);
+	mlx_data.coin = mlx_xpm_file_to_image(mlx_data.mlx, \
+		"img/coin.xpm", &img_width, &img_height);
+	mlx_data.close_door = mlx_xpm_file_to_image(mlx_data.mlx, \
+		"img/close_door.xpm", &img_width, &img_height);
+	mlx_data.open_door = mlx_xpm_file_to_image(mlx_data.mlx, \
+		"img/door.xpm", &img_width, &img_height);
 	draw_map();
-	/*if user close the window*/
 	mlx_hook(mlx_data.win, 17, 0, exit_game, NULL);
 }
 
 int	main(int argc, char **argv)
 {
-	char *file =  argv[1];
-	if (argc != 2)
-	{
-		printf("Error: No map are selected\n");
-		exit(0);
-	}
+	char	*file;
 
+	file = argv[1];
+	if (argc != 2)
+		error_int_map();
 	check_key.map = trans_to_2d_dim(file);
 	if (!check_map(check_key.map))
 		error_int_map();
