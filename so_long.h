@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 15:15:11 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/18 17:57:41 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	player_move(char **map, int key, int is_finished);
 bool	check_for_coins(void);
 int		check_line_len(char **line);
 void	the_path_final_search(void);
+void	ft_putstr(char *str);
 
 /**draw map function*/
 void	norm_fix_wall(int a, int b);

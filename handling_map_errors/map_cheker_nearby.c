@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:19:22 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 12:02:27 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/18 17:58:04 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	check_path_player(char **map)
 					&& map[count][index + 1] == '1'
 					&& map[count][index - 1] == '1')
 				{
-					printf("\033[31mBruh, player Not found way):\033[0m\n");
+					ft_putstr("\033[31mBruh, player Not found way):\033[0m\n");
 					exit(1);
 				}
 			}
