@@ -6,11 +6,37 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:10:15 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 13:53:01 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/18 15:37:17 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+bool	check_for_coins(void)
+{
+	char	**map;
+	int		count;
+	int		index;
+	int		chekr;
+
+	count = 0;
+	chekr = 0;
+	map = check_key.map;
+	while (map[count])
+	{
+		index = 0;
+		while (map[count][index])
+		{
+			if (map[count][index] == 'C')
+			{
+				return (1);
+			}
+			index++;
+		}
+		count++;
+	}
+	return (0);
+}
 
 void	norm_fix_player(int a, int b)
 {
