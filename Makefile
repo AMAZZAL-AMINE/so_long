@@ -6,7 +6,7 @@
 #    By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 08:37:55 by mamazzal          #+#    #+#              #
-#    Updated: 2023/02/20 17:53:33 by mamazzal         ###   ########.fr        #
+#    Updated: 2023/02/20 20:18:01 by mamazzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS = ft_putstr.c \
 	   handling_map_errors/map_checker_nearby_two.c \
 	   handling_map_errors/map_cheker_nearby.c \
 	   handling_map_errors/valid_path_map.c \
+	   handling_map_errors/check_name_file.c \
 	   gnl/get_next_line.c \
 	   gnl/get_next_line_utils.c
 

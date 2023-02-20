@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/20 17:51:13 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:37:10 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 	char	*file;
 
 	file = argv[1];
+	reada_the_file_name(argv[1]);
 	if (argc != 2)
 		error_in_map();
 	check_key.map = trans_to_2d_dim(file);

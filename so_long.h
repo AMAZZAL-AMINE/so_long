@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/20 17:54:11 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/20 20:36:58 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	norm_fix_close_door(int a, int b);
 void	norm_fix_player(int a, int b);
 void	norm_chenge_the_door(int a, int b);
 void	draw_map(void);
+
+void	reada_the_file_name(char *file);
 
 struct s_mlx_data
 {
