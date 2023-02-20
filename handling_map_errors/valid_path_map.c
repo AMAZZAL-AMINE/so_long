@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:37:16 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 15:27:23 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/20 08:45:20 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_position_player(char c)
 	return (0);
 }
 
-void	test(int count, int index, char **str)
+void	all_will_be_player(int count, int index, char **str)
 {
 	if (check_position_player(str[count + 1][index]))
 		str[count + 1][index] = 'P';
@@ -43,7 +43,7 @@ char	**check_path(char **str)
 		while (str[count][index])
 		{
 			if (str[count][index] == 'P')
-				test(count, index, str);
+				all_will_be_player(count, index, str);
 			index++;
 		}
 		count++;
