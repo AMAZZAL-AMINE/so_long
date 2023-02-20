@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 17:57:41 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:54:11 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include "mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include "so_long.h"
 # include <stdbool.h>
 # include "gnl/get_next_line.h"
 
@@ -70,5 +67,10 @@ struct s_check_key
 	bool	is_finished;
 	int		line_of_map;
 } check_key;
+
+struct s_player_moves
+{
+	int	moves;
+} s_m;
 
 #endif

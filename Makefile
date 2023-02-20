@@ -6,40 +6,51 @@
 #    By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 08:37:55 by mamazzal          #+#    #+#              #
-#    Updated: 2023/02/20 09:06:09 by mamazzal         ###   ########.fr        #
+#    Updated: 2023/02/20 17:53:33 by mamazzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME  = so_long.a
-
-CFLAGS  = -Wall -Wextra -Werror
+NAME = so_long
 
 CC = cc
 
-SRCS =	ft_putstr.c draw_map_utilis_func.c draw_map.c player_moves.c read_map.c so_long.c the_killers.c \
-		handling_map_errors/check_map_squar.c handling_map_errors/map_checker_nearby_two.c \
-		handling_map_errors/map_cheker_nearby.c handling_map_errors/valid_path_map.c gnl/get_next_line.c gnl/get_next_line_utils.c
+# Compiler Flags
+CFLAGS = -Wall -Werror -Wextra
 
-OBJS =	ft_putstr.o draw_map_utilis_func.o draw_map.o player_moves.o read_map.o so_long.o the_killers.o \
-		handling_map_errors/check_map_squar.o handling_map_errors/map_checker_nearby_two.o \
-		handling_map_errors/map_cheker_nearby.o handling_map_errors/valid_path_map.o gnl/get_next_line.o gnl/get_next_line_utils.o
+# Source files
+SRCS = ft_putstr.c \
+	   draw_map_utilis_func.c \
+	   draw_map.c \
+	   player_moves.c \
+	   read_map.c \
+	   so_long.c \
+	   the_killers.c \
+	   handling_map_errors/check_map_squar.c \
+	   handling_map_errors/map_checker_nearby_two.c \
+	   handling_map_errors/map_cheker_nearby.c \
+	   handling_map_errors/valid_path_map.c \
+	   gnl/get_next_line.c \
+	   gnl/get_next_line_utils.c
 
-all : $(NAME)
+# Object files
+OBJS = $(SRCS:.c=.o)
 
-$(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
+# Executable name
 
-$(OBJS) : $(SRCS)
-	$(CC) $(CFLAGS) -lmlx -framework OpenGL -framework AppKit $(SRCS)
+# Default target
+all: $(NAME)
 
-%.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+# Linking the executable
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit $(OBJS) 
 
-clean :
-	@rm -f $(OBJS)
+# Clean target
+clean:
+	rm -f $(OBJS)
 
-fclean : clean
-	@rm -f $(NAME)
-re : fclean all
+# Fclean target
+fclean: clean
+	rm -f $(NAME)
+
+# Re target
+re: fclean all

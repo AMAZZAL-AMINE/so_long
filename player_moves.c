@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:04:01 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 17:32:58 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:15:44 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	move_up(int count, int index, char **map, int is_finished)
 	{
 		map[count - 1][index] = 'P';
 		map[count][index] = '0';
+		s_m.moves += 1;
 		return ;
 	}
 	else if (map[count - 1][index] == 'E')
@@ -33,6 +34,7 @@ void	move_down(int count, int index, char **map, int is_finished)
 	if (map[count + 1][index] == '0'
 		|| map[count + 1][index] == 'C')
 	{
+		s_m.moves += 1;
 		map[count + 1][index] = 'P';
 		map[count][index] = '0';
 		return ;
@@ -51,6 +53,7 @@ void	move_to_left(int count, int index, char **map, int is_finished)
 	{
 		map[count][index - 1] = 'P';
 		map[count][index] = '0';
+		s_m.moves += 1;
 		return ;
 	}
 	else if (map[count][index - 1] == 'E')
@@ -67,6 +70,7 @@ void	move_to_right(int count, int index, char **map, int is_finished)
 	{
 		map[count][index + 1] = 'P';
 		map[count][index] = '0';
+		s_m.moves += 1;
 		return ;
 	}
 	else if (map[count][index + 1] == 'E')
