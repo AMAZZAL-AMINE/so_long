@@ -6,11 +6,11 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:49:32 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 13:53:10 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 09:52:51 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../so_long.h"
 
 void	norm_fix_wall(int a, int b)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_squar.c                                  :+:      :+:    :+:   */
+/*   check_map_wall_squar.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 10:18:01 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 11:57:41 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:44:08 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 bool	check_first_line(char **map, int count, int i)
 {

@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_name_file.c                                  :+:      :+:    :+:   */
+/*   print_moves.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 19:44:16 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/20 20:41:22 by mamazzal         ###   ########.fr       */
+/*   Created: 2023/02/21 15:49:24 by mamazzal          #+#    #+#             */
+/*   Updated: 2023/02/21 18:50:34 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "so_long.h"
 
-void	reada_the_file_name(char *file)
+void	ft_putchar(char c)
 {
-	int	i;
+	write(1, &c, 1);
+}
 
-	i = 0;
-	while (file[i])
-		i++;
-	if (file[i - 1] == 'r'
-		&& file[i - 2] == 'e'
-		&& file[i - 3] == 'b'
-		&& file[i - 4] == '.')
-		return ;
-	else
+void	ft_putnbr(int n)
+{
+	if (n == 0)
+		ft_putchar('0');
+	else if (n >= 10)
 	{
-		ft_putstr("Error\nInvalid file name !\n");
-		exit_game();
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
 	}
+	else
+		ft_putchar(n + 48);
+}
+
+void	print_moves(int move)
+{
+	ft_putstr("Moves: ");
+	ft_putnbr(move);
+	ft_putstr("\n");
 }

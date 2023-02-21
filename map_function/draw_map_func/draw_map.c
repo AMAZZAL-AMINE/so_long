@@ -6,11 +6,11 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:10:15 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/20 09:05:45 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:40:24 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../so_long.h"
 
 bool	check_for_coins(void)
 {
@@ -46,7 +46,7 @@ void	norm_fix_player(int a, int b)
 		mlx_data.win, mlx_data.player, b * 50, a * 50);
 }
 
-void	norm_chenge_the_door(int a, int b)
+void	norm_change_the_door(int a, int b)
 {
 	if (check_for_coins() == 0)
 		norm_fix_open_door(a, b);
@@ -72,7 +72,7 @@ void	draw_map(void)
 			else if (check_key.map[a][b] == 'C')
 				norm_fix_coin(a, b);
 			if (check_key.map[a][b] == 'E')
-				norm_chenge_the_door(a, b);
+				norm_change_the_door(a, b);
 			if (check_key.map[a][b] == 'P')
 				norm_fix_player(a, b);
 			b++;

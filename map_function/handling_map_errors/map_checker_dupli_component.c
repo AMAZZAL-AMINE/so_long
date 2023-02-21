@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker_nearby_two.c                           :+:      :+:    :+:   */
+/*   map_checker_dupli_component.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 12:01:33 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 12:01:40 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:13:13 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
-bool	check_for_door(char **map)
+bool	check_for_dupli_door(char **map)
 {
 	int	count;
 	int	index;
@@ -36,7 +36,7 @@ bool	check_for_door(char **map)
 	return (true);
 }
 
-bool	check_for_player(char **map)
+bool	check_for_dupli_player(char **map)
 {
 	int	count;
 	int	index;

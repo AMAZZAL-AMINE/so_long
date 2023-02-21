@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/20 20:36:58 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:42:46 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include  <stdio.h>
 # include "gnl/get_next_line.h"
 
 int		exit_game(void);
@@ -28,8 +29,8 @@ bool	check_path_door(char **map);
 bool	check_lines_map(char **map);
 void	check_map(char **map);
 bool	check_for_imposter_in_map(char **map);
-bool	check_for_door(char **map);
-bool	check_for_player(char **map);
+bool	check_for_dupli_door(char **map);
+bool	check_for_dupli_player(char **map);
 char	**check_path(char **str);
 char	**trans_to_2d_dim(char *file);
 void	player_move(char **map, int key, int is_finished);
@@ -45,10 +46,11 @@ void	norm_fix_coin(int a, int b);
 void	norm_fix_open_door(int a, int b);
 void	norm_fix_close_door(int a, int b);
 void	norm_fix_player(int a, int b);
-void	norm_chenge_the_door(int a, int b);
+void	norm_change_the_door(int a, int b);
 void	draw_map(void);
 
-void	reada_the_file_name(char *file);
+void	read_the_file_name(char *file);
+void	print_moves(int move);
 
 struct s_mlx_data
 {
@@ -70,9 +72,9 @@ struct s_check_key
 	int		line_of_map;
 } check_key;
 
-struct s_player_moves
+struct	s_move
 {
-	int	moves;
-} s_m;
+	int	move;
+} p_move;
 
 #endif

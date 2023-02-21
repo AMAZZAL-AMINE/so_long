@@ -6,11 +6,11 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:37:16 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/20 08:45:20 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/21 09:43:35 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../so_long.h"
 
 int	check_position_player(char c)
 {
