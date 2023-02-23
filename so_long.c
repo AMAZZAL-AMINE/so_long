@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/21 18:45:22 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:22:42 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error_in_map();
 	file = argv[1];
-	read_the_file_name(argv[1]);
 	if (argc != 2)
 		error_in_map();
+	read_the_file_name(argv[1]);
 	check_key.map = trans_to_2d_dim(file);
-	free(check_key.map);
 	check_map(check_key.map);
 	the_all_cheker_functions();
 	the_path_final_search();
+	free_map(check_key.map);
 	check_key.map = trans_to_2d_dim(file);
 	mlx_pointers();
 	mlx_key_hook(mlx_data.win, key_press, NULL);

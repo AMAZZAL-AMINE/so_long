@@ -6,7 +6,7 @@
 #    By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 08:37:55 by mamazzal          #+#    #+#              #
-#    Updated: 2023/02/21 16:12:52 by mamazzal         ###   ########.fr        #
+#    Updated: 2023/02/23 17:23:39 by mamazzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = ft_putstr.c \
 	   so_long.c \
 	   the_killers.c \
 	   print_moves.c \
+	   free_map.c \
 	   map_function/draw_map_func/draw_map_utilis_func.c \
 	   map_function/draw_map_func/draw_map.c \
 	   map_function/handling_map_errors/check_map_wall_squar.c \

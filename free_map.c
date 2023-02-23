@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_moves.c                                      :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 15:49:24 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/21 18:53:25 by mamazzal         ###   ########.fr       */
+/*   Created: 2023/02/23 17:22:56 by mamazzal          #+#    #+#             */
+/*   Updated: 2023/02/23 17:23:01 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_putchar(char c)
+void	free_map(char **map)
 {
-	write(1, &c, 1);
-}
+	int	count;
 
-void	ft_putnbr(int n)
-{
-	if (n == 0)
-		ft_putchar('0');
-	else if (n >= 10)
+	count = 0;
+	while (map[count])
 	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		free(map[count]);
+		count++;
 	}
-	else
-		ft_putchar(n + 48);
-}
-
-void	print_moves(int move)
-{
-	ft_putstr("Moves: ");
-	ft_putnbr(move);
-	ft_putstr("\n");
+	free(map);
 }

@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/21 18:42:46 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:23:18 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	draw_map(void);
 
 void	read_the_file_name(char *file);
 void	print_moves(int move);
+
+void	free_map(char **map);
 
 struct s_mlx_data
 {
