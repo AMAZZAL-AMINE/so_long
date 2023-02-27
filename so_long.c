@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/23 17:22:42 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:33:12 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error_in_map();
 	file = argv[1];
-	if (argc != 2)
-		error_in_map();
 	read_the_file_name(argv[1]);
 	check_key.map = trans_to_2d_dim(file);
 	check_map(check_key.map);
@@ -88,5 +86,6 @@ int	main(int argc, char **argv)
 	mlx_pointers();
 	mlx_key_hook(mlx_data.win, key_press, NULL);
 	mlx_loop(mlx_data.mlx);
+	free(mlx_data.mlx);
 	return (0);
 }

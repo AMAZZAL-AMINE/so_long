@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:38:24 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/22 12:28:23 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:52:38 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	count_lines(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		ft_putstr("Error\nInvalid file!\n");
+		ft_putstr("Error\n");
 		exit_game();
 	}
 	while (1)

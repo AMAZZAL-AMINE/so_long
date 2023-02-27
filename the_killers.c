@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:46:57 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/18 17:58:04 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:53:09 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	exit_game(void)
 
 void	error_in_map(void)
 {
-	ft_putstr("\033[31mMAP ERROR\033[0m\n");
+	ft_putstr("Error\n");
 	exit(1);
 }
 

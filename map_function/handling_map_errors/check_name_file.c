@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:44:16 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/21 18:42:34 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:03:16 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	read_the_file_name(char *file)
 		return ;
 	else
 	{
-		ft_putstr("Error\nInvalid file name !\n");
-		exit_game();
+		error_in_map();
 	}
 }
