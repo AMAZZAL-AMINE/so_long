@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_path_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:37:16 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/23 10:31:30 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:31:36 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,36 @@ int	check_position_player(char c)
 	return (0);
 }
 
-void	all_will_be_player(int count, int index, char **str)
+void	all_will_be_player(int count, int index)
 {
-	if (check_position_player(str[count + 1][index]))
-		str[count + 1][index] = 'P';
-	if (check_position_player(str[count - 1][index]))
-		str[count - 1][index] = 'P';
-	if (check_position_player(str[count][index + 1]))
-		str[count][index + 1] = 'P';
-	if (check_position_player(str[count][index - 1]))
-		str[count][index - 1] = 'P';
+	if (check_position_player(check_key.map[count + 1][index]))
+		check_key.map[count + 1][index] = 'P';
+	if (check_position_player(check_key.map[count - 1][index]))
+		check_key.map[count - 1][index] = 'P';
+	if (check_position_player(check_key.map[count][index + 1]))
+		check_key.map[count][index + 1] = 'P';
+	if (check_position_player(check_key.map[count][index - 1]))
+		check_key.map[count][index - 1] = 'P';
 }
 
-char	**check_path(char **str)
+char	**check_path(void)
 {
 	int	count;
 	int	index;
 
 	count = 0;
-	while (str[count])
+	while (check_key.map[count])
 	{
 		index = 0;
-		while (str[count][index])
+		while (check_key.map[count][index])
 		{
-			if (str[count][index] == 'P')
-				all_will_be_player(count, index, str);
+			if (check_key.map[count][index] == 'P')
+				all_will_be_player(count, index);
 			index++;
 		}
 		count++;
 	}
-	return (str);
+	return (check_key.map);
 }
 
 int	near_door(int count, int index, char **map)

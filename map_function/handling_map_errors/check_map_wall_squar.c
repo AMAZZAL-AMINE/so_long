@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_wall_squar.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 10:18:01 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/23 17:49:58 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:46:26 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool	check_middle_line(char **map, int count, int i)
 	return (true);
 }
 
-void	check_map(char **map)
+void	check_map_content(char **map)
 {
 	int	count;
 	int	i;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_name_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:44:16 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/24 16:03:16 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:46:56 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-void	read_the_file_name(char *file)
+void	check_file_name(char *file)
 {
 	int	i;
 

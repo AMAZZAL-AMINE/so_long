@@ -6,12 +6,13 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/27 11:33:12 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:10:27 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+//to know what key is pressed
 int	key_press(int keycode)
 {
 	check_key.key = keycode;
@@ -22,9 +23,10 @@ int	key_press(int keycode)
 	return (0);
 }
 
+//all hadnlage functions
 void	the_all_cheker_functions(void)
 {
-	check_path_coing(check_key.map);
+	check_path_coin(check_key.map);
 	check_path_door(check_key.map);
 	check_lines_map(check_key.map);
 	check_for_imposter_in_map(check_key.map);
@@ -33,6 +35,7 @@ void	the_all_cheker_functions(void)
 	check_path(check_key.map);
 }
 
+//create values for mlx images 
 void	set_images_mlx(void)
 {
 	int	img_width;
@@ -55,6 +58,7 @@ void	set_images_mlx(void)
 		error_in_map();
 }
 
+//initialization of mlx
 void	mlx_pointers(void)
 {
 	int	width;
@@ -76,9 +80,9 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error_in_map();
 	file = argv[1];
-	read_the_file_name(argv[1]);
+	check_file_name(argv[1]);
 	check_key.map = trans_to_2d_dim(file);
-	check_map(check_key.map);
+	check_map_content(check_key.map);
 	the_all_cheker_functions();
 	the_path_final_search();
 	free_map(check_key.map);

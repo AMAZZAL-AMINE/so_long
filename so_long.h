@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/23 17:23:18 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:48:49 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int		exit_game(void);
 void	finished_game(void);
 void	error_in_map(void);
 bool	check_path_player(char **map);
-bool	check_path_coing(char **map);
+bool	check_path_coin(char **map);
 bool	check_path_door(char **map);
 bool	check_lines_map(char **map);
-void	check_map(char **map);
+void	check_map_content(char **map);
 bool	check_for_imposter_in_map(char **map);
 bool	check_for_dupli_door(char **map);
 bool	check_for_dupli_player(char **map);
@@ -49,7 +49,7 @@ void	norm_fix_player(int a, int b);
 void	norm_change_the_door(int a, int b);
 void	draw_map(void);
 
-void	read_the_file_name(char *file);
+void	check_file_name(char *file);
 void	print_moves(int move);
 
 void	free_map(char **map);

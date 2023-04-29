@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_cheker_nearby.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:19:22 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/02/23 10:28:20 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/29 15:48:49 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-bool	check_path_coing(char **map)
+bool	check_path_coin(char **map)
 {
 	int	count;
 	int	index;
