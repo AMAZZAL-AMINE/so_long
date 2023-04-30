@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/29 15:48:49 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/30 14:53:06 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	check_map_content(char **map);
 bool	check_for_imposter_in_map(char **map);
 bool	check_for_dupli_door(char **map);
 bool	check_for_dupli_player(char **map);
-char	**check_path(char **str);
+char	**check_path(void);
 char	**trans_to_2d_dim(char *file);
 void	player_move(char **map, int key, int is_finished);
 bool	check_for_coins(void);

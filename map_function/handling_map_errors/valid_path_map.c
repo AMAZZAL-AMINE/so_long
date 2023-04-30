@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:37:16 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/29 19:31:36 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/30 15:40:53 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,25 +75,26 @@ void	the_path_final_search(void)
 	int	count;
 	int	index;
 
-	count = 0;
-	while (check_path(check_key.map)[count])
+	count = -1;
+	while (check_path()[++count])
 	{
-		index = 0;
-		while (check_path(check_key.map)[count][index])
+		index = -1;
+		while (check_path()[count][++index])
 		{
-			if (check_path(check_key.map)[count][index] == '0')
+			if (check_path()[count][index] == '0'
+				|| check_path()[count][index] == 'C')
 			{
-				if (near_door(count + 1, index, check_path(check_key.map)))
+				if (check_path()[count][index] == 'C')
 					error_in_map();
-				else if (near_door(count - 1, index, check_path(check_key.map)))
+				if (near_door(count + 1, index, check_path()))
 					error_in_map();
-				else if (near_door(count, index + 1, check_path(check_key.map)))
+				else if (near_door(count - 1, index, check_path()))
 					error_in_map();
-				else if (near_door(count, index - 1, check_path(check_key.map)))
+				else if (near_door(count, index + 1, check_path()))
+					error_in_map();
+				else if (near_door(count, index - 1, check_path()))
 					error_in_map();
 			}
-			index++;
 		}
-		count++;
 	}
 }

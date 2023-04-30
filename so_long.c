@@ -6,13 +6,12 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/29 19:10:27 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/30 15:42:28 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//to know what key is pressed
 int	key_press(int keycode)
 {
 	check_key.key = keycode;
@@ -32,10 +31,8 @@ void	the_all_cheker_functions(void)
 	check_for_imposter_in_map(check_key.map);
 	check_for_dupli_door(check_key.map);
 	check_for_dupli_player(check_key.map);
-	check_path(check_key.map);
 }
 
-//create values for mlx images 
 void	set_images_mlx(void)
 {
 	int	img_width;
@@ -58,7 +55,6 @@ void	set_images_mlx(void)
 		error_in_map();
 }
 
-//initialization of mlx
 void	mlx_pointers(void)
 {
 	int	width;
@@ -80,7 +76,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error_in_map();
 	file = argv[1];
-	check_file_name(argv[1]);
+	check_file_name(argv[1] + (ft_strlen(argv[1]) - 4));
 	check_key.map = trans_to_2d_dim(file);
 	check_map_content(check_key.map);
 	the_all_cheker_functions();
