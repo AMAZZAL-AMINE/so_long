@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 18:11:22 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:21:08 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ void	set_images_mlx(void)
 		"textures/close_door.xpm", &img_width, &img_height);
 	mlx_data.open_door = mlx_xpm_file_to_image(mlx_data.mlx, \
 		"textures/door.xpm", &img_width, &img_height);
-	if (!mlx_data.wall || !mlx_data.space || !mlx_data.player || \
-		!mlx_data.coin || !mlx_data.close_door || !mlx_data.open_door)
-		error_in_map();
 }
 
 void	mlx_pointers(char *file)
@@ -83,6 +80,9 @@ int	main(int argc, char **argv)
 	the_all_cheker_functions();
 	the_path_final_search();
 	mlx_pointers(file);
+	if (!mlx_data.wall || !mlx_data.space || !mlx_data.player || \
+		!mlx_data.coin || !mlx_data.close_door || !mlx_data.open_door)
+		error_in_map();
 	mlx_key_hook(mlx_data.win, key_press, NULL);
 	mlx_loop(mlx_data.mlx);
 	return (0);

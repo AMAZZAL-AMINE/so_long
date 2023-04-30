@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 18:04:33 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:25:32 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
-# include  <stdio.h>
 # include "gnl/get_next_line.h"
 
 int		exit_game(void);
@@ -39,7 +38,6 @@ int		check_line_len(char **line);
 void	the_path_final_search(void);
 void	ft_putstr(char *str);
 
-/**draw map function*/
 void	norm_fix_wall(int a, int b);
 void	norm_fix_space(int a, int b);
 void	norm_fix_coin(int a, int b);
