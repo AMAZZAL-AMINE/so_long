@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 15:42:28 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:11:22 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ int	key_press(int keycode)
 	check_key.key = keycode;
 	if (keycode == 53)
 		exit_game();
-	player_move(check_key.map, keycode, check_key.is_finished);
+	player_move(keycode, check_key.is_finished);
 	draw_map();
 	return (0);
 }
 
-//all hadnlage functions
 void	the_all_cheker_functions(void)
 {
 	check_path_coin(check_key.map);
@@ -55,11 +54,13 @@ void	set_images_mlx(void)
 		error_in_map();
 }
 
-void	mlx_pointers(void)
+void	mlx_pointers(char *file)
 {
 	int	width;
 	int	height;
 
+	free_map(check_key.map);
+	check_key.map = trans_to_2d_dim(file);
 	width = ft_strlen(check_key.map[0]) * 50;
 	height = check_line_len(check_key.map) * 50;
 	mlx_data.mlx = mlx_init();
@@ -81,11 +82,8 @@ int	main(int argc, char **argv)
 	check_map_content(check_key.map);
 	the_all_cheker_functions();
 	the_path_final_search();
-	free_map(check_key.map);
-	check_key.map = trans_to_2d_dim(file);
-	mlx_pointers();
+	mlx_pointers(file);
 	mlx_key_hook(mlx_data.win, key_press, NULL);
 	mlx_loop(mlx_data.mlx);
-	free(mlx_data.mlx);
 	return (0);
 }

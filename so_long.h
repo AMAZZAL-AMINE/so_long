@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 14:53:06 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/04/30 18:04:33 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	check_for_dupli_door(char **map);
 bool	check_for_dupli_player(char **map);
 char	**check_path(void);
 char	**trans_to_2d_dim(char *file);
-void	player_move(char **map, int key, int is_finished);
+void	player_move(int key, int is_finished);
 bool	check_for_coins(void);
 int		check_line_len(char **line);
 void	the_path_final_search(void);
@@ -54,6 +54,8 @@ void	print_moves(int move);
 
 void	free_map(char **map);
 
+void	mlx_destroy(void);
+
 struct s_mlx_data
 {
 	void	*mlx;
@@ -70,6 +72,7 @@ struct s_check_key
 {
 	int		key;
 	char	**map;
+	char	**fake_map;
 	bool	is_finished;
 	int		line_of_map;
 } check_key;
