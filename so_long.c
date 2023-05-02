@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 18:21:08 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/02 20:42:25 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,11 @@ void	mlx_pointers(char *file)
 	width = ft_strlen(check_key.map[0]) * 50;
 	height = check_line_len(check_key.map) * 50;
 	mlx_data.mlx = mlx_init();
+	if (!mlx_data.mlx)
+		exit(1);
 	mlx_data.win = mlx_new_window(mlx_data.mlx, width, height, "so_long");
+	if (!mlx_data.win)
+		exit(1);
 	set_images_mlx();
 	draw_map();
 	mlx_hook(mlx_data.win, 17, 0, exit_game, NULL);
@@ -70,7 +74,7 @@ void	mlx_pointers(char *file)
 int	main(int argc, char **argv)
 {
 	char	*file;
-
+	//todo : check size of window and conpare it with the size of screen
 	if (argc != 2)
 		error_in_map();
 	file = argv[1];

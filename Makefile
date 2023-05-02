@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mamazzal <mamazzal@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 08:37:55 by mamazzal          #+#    #+#              #
-#    Updated: 2023/02/23 17:23:39 by mamazzal         ###   ########.fr        #
+#    Updated: 2023/05/02 14:52:04 by mamazzal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,12 +38,9 @@ SRCS = ft_putstr.c \
 # Object files
 OBJS = $(SRCS:.c=.o)
 
-# Executable name
-
 # Default target
 all: $(NAME)
 
-# Linking the executable
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit $(OBJS) 
 
