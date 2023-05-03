@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/05/03 12:04:18 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:17:06 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	the_all_cheker_functions(void)
 	check_for_imposter_in_map(check_key.map);
 	check_for_dupli_door(check_key.map);
 	check_for_dupli_player(check_key.map);
+	if (check_for_coins() == 0)
+		error_in_map();
 }
 
 void	set_images_mlx(void)
@@ -67,6 +69,9 @@ void	mlx_pointers(char *file)
 	if (!mlx_data.win)
 		exit(1);
 	set_images_mlx();
+	if (!mlx_data.wall || !mlx_data.space || !mlx_data.player || \
+		!mlx_data.coin || !mlx_data.close_door || !mlx_data.open_door)
+		error_in_map();
 	draw_map();
 	mlx_hook(mlx_data.win, 17, 0, exit_game, NULL);
 }
@@ -78,6 +83,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error_in_map();
 	file = argv[1];
+	p_move.move = 1;
 	check_file_name(argv[1] + (ft_strlen(argv[1]) - 4));
 	check_key.map = trans_to_2d_dim(file);
 	check_map_content(check_key.map);
@@ -85,9 +91,6 @@ int	main(int argc, char **argv)
 	the_path_final_search();
 	is_map_to_big();
 	mlx_pointers(file);
-	if (!mlx_data.wall || !mlx_data.space || !mlx_data.player || \
-		!mlx_data.coin || !mlx_data.close_door || !mlx_data.open_door)
-		error_in_map();
 	mlx_key_hook(mlx_data.win, key_press, NULL);
 	mlx_loop(mlx_data.mlx);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:46:57 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 18:04:27 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:15:21 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,21 @@ void	finished_game(void)
 {
 	ft_putstr("\033[32mYOU WIN HH\033[0m\n");
 	mlx_destroy();
+	free_map(check_key.map);
 	exit(0);
 }
 
 int	exit_game(void)
 {
-	ft_putstr("\033[31mEXIT THE GAME\033[0m\n");
 	exit(0);
+	free_map(check_key.map);
 	return (0);
 }
 
 void	error_in_map(void)
 {
 	ft_putstr("Error\n");
+	free_map(check_key.map);
 	exit(1);
 }
 
