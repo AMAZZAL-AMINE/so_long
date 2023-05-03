@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:38:24 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 17:47:21 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:58:46 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ char	**trans_to_2d_dim(char *file)
 	count = count_lines(file);
 	fd = open(file, O_RDONLY);
 	map = malloc(sizeof(char *) * (count + 1));
+	if (!map)
+		return (NULL);
 	while (1)
 	{
 		line = get_next_line(fd);

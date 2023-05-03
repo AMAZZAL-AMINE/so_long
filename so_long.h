@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:49:40 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 18:25:32 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/03 11:54:50 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	print_moves(int move);
 void	free_map(char **map);
 
 void	mlx_destroy(void);
+void	is_map_to_big(void);
 
 struct s_mlx_data
 {

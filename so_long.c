@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/05/02 20:42:25 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:04:18 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	mlx_pointers(char *file)
 int	main(int argc, char **argv)
 {
 	char	*file;
-	//todo : check size of window and conpare it with the size of screen
+
 	if (argc != 2)
 		error_in_map();
 	file = argv[1];
@@ -83,6 +83,7 @@ int	main(int argc, char **argv)
 	check_map_content(check_key.map);
 	the_all_cheker_functions();
 	the_path_final_search();
+	is_map_to_big();
 	mlx_pointers(file);
 	if (!mlx_data.wall || !mlx_data.space || !mlx_data.player || \
 		!mlx_data.coin || !mlx_data.close_door || !mlx_data.open_door)
