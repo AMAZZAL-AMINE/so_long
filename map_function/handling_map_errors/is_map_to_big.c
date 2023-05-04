@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:39:04 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/05/03 11:54:43 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:33:34 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	is_map_to_big(void)
 	hight = check_line_len(check_key.map);
 	if (width > 51 || hight > 28)
 	{
-		ft_putstr("Error\n");
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 }

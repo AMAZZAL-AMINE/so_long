@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:38:24 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/05/03 11:58:46 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:51:57 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	count_lines(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putstr("Error\n");
-		exit(0);
+		write(2, "Error\n", 6);
+		exit(1);
 	}
 	while (1)
 	{

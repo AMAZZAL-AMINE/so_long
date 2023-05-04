@@ -6,15 +6,14 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 10:18:01 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/29 15:46:26 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:03:42 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-bool	check_first_line(char **map, int count, int i)
+bool	check_first_line(char **map, int i)
 {
-	(void)count;
 	while (map[0][i])
 	{
 		if (map[0][i] != '1')
@@ -61,7 +60,7 @@ void	check_map_content(char **map)
 	{
 		i = 0;
 		if (count == 0)
-			check_first_line(map, count, i);
+			check_first_line(map, i);
 		else if (map[count + 1] == 0)
 			check_last_line(map, count, i);
 		else

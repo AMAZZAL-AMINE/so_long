@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:04:01 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/04/30 17:02:18 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:55:44 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,13 @@ void	player_move(int key, int is_finished)
 		{
 			if (check_key.map[count][index] == 'P')
 			{
-				if (key == 126)
+				if (key == 126 || key == 13)
 					move_up(count, index, is_finished);
-				else if (key == 125)
+				else if (key == 125 || key == 1)
 					move_down(count, index, is_finished);
-				else if (key == 123)
+				else if (key == 123 || key == 0)
 					move_to_left(count, index, is_finished);
-				else if (key == 124)
+				else if (key == 124 || key == 2)
 					move_to_right(count, index, is_finished);
 				return ;
 			}

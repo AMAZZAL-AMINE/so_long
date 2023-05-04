@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/05/03 18:17:06 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:06:01 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,10 @@ int	main(int argc, char **argv)
 	char	*file;
 
 	if (argc != 2)
-		error_in_map();
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	file = argv[1];
 	p_move.move = 1;
 	check_file_name(argv[1] + (ft_strlen(argv[1]) - 4));
