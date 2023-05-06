@@ -6,7 +6,7 @@
 /*   By: mamazzal <mamazzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 09:32:43 by mamazzal          #+#    #+#             */
-/*   Updated: 2023/05/05 16:48:21 by mamazzal         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:29:37 by mamazzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,16 @@ void	mlx_pointers(char *file)
 	height = check_line_len(check_key.map) * 50;
 	mlx_data.mlx = mlx_init();
 	if (!mlx_data.mlx)
+	{
+		free_map(check_key.map);
 		exit(1);
+	}
 	mlx_data.win = mlx_new_window(mlx_data.mlx, width, height, "so_long");
 	if (!mlx_data.win)
+	{
+		free_map(check_key.map);
 		exit(1);
+	}
 	set_images_mlx();
 	if (!mlx_data.wall || !mlx_data.space || !mlx_data.player || \
 		!mlx_data.coin || !mlx_data.close_door || !mlx_data.open_door)
